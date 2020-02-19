@@ -1,14 +1,20 @@
 package edu.ujcv.progra1;
 
-import java.util.Scanner;
+import java.util.*;
+
+
+// https://www.w3resource.com/java-exercises/array/index.php
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+
+
         // Busquedas
 
         ArregloDinamico<Integer> miArreglo = new ArregloDinamico<>();
+
 
         Scanner sc = new Scanner(System.in);
 
@@ -33,10 +39,10 @@ public class Main {
             System.out.println(String.format("el numero %d se encontro en el indice %d",e,e));
         }
 
-
-
-
-
+        Stack<Integer> stack = new Stack<>();
+        stack.push(5);
+        stack.peek();
+        stack.pop();
     }
 
     // comportamiento lineal
