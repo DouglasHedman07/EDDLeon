@@ -7,43 +7,42 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
-	// write your code here
-
-
-        // Busquedas
-
-        ArregloDinamico<Integer> miArreglo = new ArregloDinamico<>();
-
-
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("se le pediran 10 enteros");
-
-        for (int i = 0; i < 5; i++) {
-            System.out.println("ingrese un Entero");
-
-            if(sc.hasNextInt()) {
-                miArreglo.aggregar(sc.nextInt());
-            }else {sc.next();}
-        }
-
-        System.out.println("ingrese un elemento a buscar");
-        int e = sc.nextInt();
-
-        e = sequentialSearch(miArreglo,e);
-
-        if (e == -1){
-            System.out.println("no existe el emento");
-        }else{
-            System.out.println(String.format("el numero %d se encontro en el indice %d",e,e));
-        }
-
-        Stack<Integer> stack = new Stack<>();
-        stack.push(5);
-        stack.peek();
-        stack.pop();
-    }
+//    public static void main(String[] args) {
+//	// write your code here
+//
+//        // Busquedas
+//
+//        ArregloDinamico<Integer> miArreglo = new ArregloDinamico<>();
+//
+//
+//        Scanner sc = new Scanner(System.in);
+//
+//        System.out.println("se le pediran 10 enteros");
+//
+//        for (int i = 0; i < 5; i++) {
+//            System.out.println("ingrese un Entero");
+//
+//            if(sc.hasNextInt()) {
+//                miArreglo.aggregar(sc.nextInt());
+//            }else {sc.next();}
+//        }
+//
+//        System.out.println("ingrese un elemento a buscar");
+//        int e = sc.nextInt();
+//
+//        e = sequentialSearch(miArreglo,e);
+//
+//        if (e == -1){
+//            System.out.println("no existe el emento");
+//        }else{
+//            System.out.println(String.format("el numero %d se encontro en el indice %d",e,e));
+//        }
+//
+//        Stack<Integer> stack = new Stack<>();
+//        stack.push(5);
+//        stack.peek();
+//        stack.pop();
+//    }
 
     // comportamiento lineal
     public static <E>int sequentialSearch(ArregloDinamico arr, E e){
@@ -77,37 +76,78 @@ public class Main {
     }
 
 
-    public static int[] mergeSort(int[] arr){
-        if(arr.length <= 1){
-            return arr;
-        }
-        int[] inf = new int[arr.length/2];
-        int[] sup = new int[arr.length - inf.length];
+//    public static int[] mergeSort(int[] arr){
+//        if(arr.length <= 1){
+//            return arr;
+//        }
+//        int[] inf = new int[arr.length/2];
+//        int[] sup = new int[arr.length - inf.length];
+//
+//        System.arraycopy(arr,0,inf,0,inf.length);
+//        System.arraycopy(arr,inf.length,sup,0,sup.length);
+//
+//        return merge(mergeSort(inf),mergeSort(sup));
+//
+//    }
 
-        System.arraycopy(arr,0,inf,0,inf.length);
-        System.arraycopy(arr,inf.length,sup,0,sup.length);
+//    private static int[] merge(int[] a, int[] b) {
+//        int[] c = new int[a.length + b.length];
+//        int i = 0;
+//        int j = 0;
+//        int k = 0;
+//        while (i < a.length && j < b.length){
+//            if (a[i] < b[j]) {
+//                c[k++] = a[i++];
+//            }else {
+//                c[k++] = b[j++];
+//            }
+//        }
+//        if(i < a.length){
+//            System.arraycopy(a,i,c,k,c.length - k);
+//        }else{
+//            System.arraycopy(b,j,c,k,c.length - k);
+//        }
+//        return  c;
+//    }
 
-        return merge(mergeSort(inf),mergeSort(sup));
 
-    }
+    public static void main(String[] args) {
 
-    private static int[] merge(int[] a, int[] b) {
-        int[] c = new int[a.length + b.length];
-        int i = 0;
-        int j = 0;
-        int k = 0;
-        while (i < a.length && j < b.length){
-            if (a[i] < b[j]) {
-                c[k++] = a[i++];
-            }else {
-                c[k++] = b[j++];
+        int[] numeros = new int[]{8,7,6,5,4,3,2,1};
+        int temporal = 0;
+        for (int i = numeros.length -1; i > 0; i--){
+            for(int j = 0; j < i; j++){
+                if (numeros [j] > numeros[j + 1]){
+                    temporal = numeros[j];
+                    numeros[j] = numeros[j + 1];
+                    numeros [j+1] = temporal;
+
+                }
             }
         }
-        if(i < a.length){
-            System.arraycopy(a,i,c,k,c.length - k);
-        }else{
-            System.arraycopy(b,j,c,k,c.length - k);
+        for (int i = 0; i < numeros.length; i++){
+            System.out.println(numeros[i]);
         }
-        return  c;
+
+        Pila<Integer> pila = new Pila<>();
+
+
     }
+
+    public static void merge(int A[],int izq, int m, int der){
+        int i, j, k;
+        int [] B = new int[A.length]; //array auxiliar
+        for (i=izq; i<=der; i++) //copia ambas mitades en el array auxiliar
+            B[i]=A[i];
+
+        i=izq; j=m+1; k=izq;
+        while (i<=m && j<=der) //copia el siguiente elemento más grande
+            if (B[i]<=B[j])
+                A[k++]=B[i++];
+            else
+                A[k++]=B[j++];
+        while (i<=m) //copia los elementos que quedan de la
+            A[k++]=B[i++]; //primera mitad (si los hay)
+    }
+
 }
