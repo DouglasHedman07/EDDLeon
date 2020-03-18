@@ -113,23 +113,30 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] numeros = new int[]{8,7,6,5,4,3,2,1};
-        int temporal = 0;
-        for (int i = numeros.length -1; i > 0; i--){
-            for(int j = 0; j < i; j++){
-                if (numeros [j] > numeros[j + 1]){
-                    temporal = numeros[j];
-                    numeros[j] = numeros[j + 1];
-                    numeros [j+1] = temporal;
+        Hashtable<String,Object> d1 = new Hashtable<>();
+        HashMap<String,Object> d2 = new HashMap<>();
+        Diccionario d = new Diccionario();
 
-                }
-            }
-        }
-        for (int i = 0; i < numeros.length; i++){
-            System.out.println(numeros[i]);
-        }
+        d.Put("hola", "mundo");
 
-        Pila<Integer> pila = new Pila<>();
+        d1.put("hola", "mundo");
+
+        d2.put("hola", "mundo");
+
+
+        d.Put("test","mundo");
+
+        d1.put("test", "mundo");
+
+        d2.put("test", "mundo");
+
+        System.out.println(d.get("test"));
+
+
+
+
+
+
 
 
     }

@@ -32,4 +32,28 @@ package edu.ujcv.progra1;
 
 
 public class Diccionario {
+
+    private Object[] objects;
+
+    private final int sizeofArray = 3000;
+
+
+
+    public Diccionario(){
+        objects = new Object[sizeofArray];
+    }
+
+
+    public void Put(String key,Object value){
+
+        int index = Math.abs(key.hashCode()) % sizeofArray;
+
+        objects[index] = value;
+
+    }
+
+    public Object get(String key){
+        return objects[Math.abs(key.hashCode())%sizeofArray];
+    }
+
 }
