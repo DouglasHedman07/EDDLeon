@@ -53,6 +53,23 @@ public class BinTree {
             System.out.println(dato);
             if(HijoDer != null) HijoDer.imprimirInOrder();
         }
+
+        public void imprimirPreOrder() {
+
+
+        }
+
+        public void imprimirPostOrder() {
+
+
+        }
+
+        public void imprimirporNivel() {
+
+           // cola 
+        }
+
+
     }
 
 }
