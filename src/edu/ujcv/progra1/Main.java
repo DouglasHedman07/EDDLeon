@@ -1,6 +1,8 @@
 package edu.ujcv.progra1;
 
 import java.util.*;
+// ABB
+// GRAFOS
 
 
 // https://www.w3resource.com/java-exercises/array/index.php
@@ -112,31 +114,17 @@ public class Main {
 
 
     public static void main(String[] args) {
+        BinTree bt = new BinTree();
 
-        Hashtable<String,Object> d1 = new Hashtable<>();
-        HashMap<String,Object> d2 = new HashMap<>();
-        Diccionario d = new Diccionario();
+        bt.add(5);
+        bt.add(6);
+        bt.add(9);
+        bt.add(1);
+        bt.add(0);
+        bt.add(2);
+        bt.add(4);
 
-        d.Put("hola", "mundo");
-
-        d1.put("hola", "mundo");
-
-        d2.put("hola", "mundo");
-
-
-        d.Put("test","mundo");
-
-        d1.put("test", "mundo");
-
-        d2.put("test", "mundo");
-
-        System.out.println(d.get("test"));
-
-
-
-
-
-
+        bt.imprimirInOrder();
 
 
     }
