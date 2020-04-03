@@ -1,5 +1,9 @@
 package edu.ujcv.progra1;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Queue;
+
 public class BinTree {
 
    private BinTreeNode root;
@@ -66,7 +70,19 @@ public class BinTree {
 
         public void imprimirporNivel() {
 
-           // cola 
+           // crear cola
+            Queue<BinTreeNode> cola = new ArrayDeque<BinTreeNode>();
+
+            // aggregar a la cola la raiz del arbol
+            cola.add(root);
+
+            // mientras la cola no este vacia
+            while(!cola.isEmpty()) {
+
+                // procesar los nodos.
+
+            }
+
         }
 
 
